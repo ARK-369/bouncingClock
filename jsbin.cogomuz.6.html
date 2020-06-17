@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by ARK-369 (http://jsbin.com/cogomuz/6/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+    <head>
+      <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
+        <title>bouncingClock</title>
+    <style id="jsbin-css">
+* { margin: 0; padding: 0; }
+#clock {
+  text-align: absolute;
+  font-family: 'Suez One', serif;
+  font-size:96px;
+  margin-top:-48;
+  color:white;
+   /* Starting position */	
+ transform:translateX(50%);
+ /* Apply animation to this element */	
+ animation: bouncing-text 12s linear infinite alternate;
+}
+@keyframes bouncing-text {
+ 
+ 100% { 
+ transform: translateX(-50%); 
+ }
+  }
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  bottom: -50%;
+}
+</style>
+</head>
+    <body>
+        <div id="clock" >12:13:14</div>
+        <h1></h1>
+        <p></p>
+    <script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+  var symbol = '▫'
+
+  if (hours <= 9) {
+    hours = '0' + hours;
+  }
+  if (minutes <= 9) {
+    minutes = '0' + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = '0' + seconds;
+  }
+  if (seconds%2 === 0){
+  symbol = '▪';
+  
+}
+  var clockFace = hours + symbol + minutes + symbol + seconds;
+  var hexColor = '#' + seconds + minutes + hours;
+
+  document.getElementById('clock').innerHTML = clockFace;
+  
+  setTimeout(function() {
+  colorClock();
+}, 1000);
+  document.body.style.background = hexColor;
+
+}
+
+colorClock();
+
+
+
+
+</script>
+</body>
+</html>
