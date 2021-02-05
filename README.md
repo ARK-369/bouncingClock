@@ -1,2 +1,2 @@
 # bouncingClock
-javaScript practice
+javaScript & CSS practice, creating color changing digital clock
